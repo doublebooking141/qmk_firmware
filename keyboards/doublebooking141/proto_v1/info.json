@@ -6,7 +6,7 @@
     "usb": {
         "device_version": "1.0.0",
         "pid": "0x8141",
-        "vid": "0xFEED"
+        "vid": "0xBEEF"
     },
     "processor": "RP2040",
     "bootloader": "rp2040",
@@ -25,18 +25,18 @@
     },
     "bootmagic": {
         "enabled": true,
-        "matrix": [0, 1]
+        "matrix": [5, 6]
     },
     "matrix_pins": {
-        "cols": ["GP3", "GP4", "GP5", "GP6", "GP7", "GP11", "GP12"],
-        "rows": ["GP3", "GP4", "GP5", "GP6", "GP7", "GP11", "GP12"]
+        "cols": ["GP3", "GP4", "GP5", "GP6", "GP7", "GP11", "GP12", "GP10"],
+        "rows": ["GP3", "GP4", "GP5", "GP6", "GP7", "GP11", "GP12", "GP10"]
     },
     "diode_direction": "COL2ROW", 
     "dynamic_keymap": {
         "layer_count": 10
     },
     "rgblight": {
-        "led_count": 40,
+        "led_count": 43,
         "animations": {
             "alternating": true,
             "breathing": true,
@@ -48,7 +48,8 @@
             "snake": true,
             "static_gradient": true,
             "twinkle": true
-        }
+        },
+        "max_brightness": 127
     },
     "ws2812": {
         "pin": "GP2",
@@ -65,59 +66,56 @@
     },
 
     "layouts": {
-        "LAYOUT_ortho_4x4": {
+        "LAYOUT": {
             "layout": [
-                {"label":"ESC","matrix": [6, 5], "x": 0, "y": 0},
-                {"label":"NC1","matrix": [6, 4], "x": 0, "y": 0},
-                {"label":"F1" ,"matrix": [6, 3], "x": 0, "y": 0},
-                {"label":"F2" ,"matrix": [6, 2], "x": 0, "y": 0},
-                {"label":"F3" ,"matrix": [6, 1], "x": 0, "y": 0},
-                {"label":"F4" ,"matrix": [6, 0], "x": 0, "y": 0},
-                {"label":"1"  ,"matrix": [4, 5], "x": 0, "y": 0},
-                {"label":"2"  ,"matrix": [5, 4], "x": 0, "y": 0},
-                {"label":"3"  ,"matrix": [5, 3], "x": 0, "y": 0},
-                {"label":"4"  ,"matrix": [5, 2], "x": 0, "y": 0},
-                {"label":"5"  ,"matrix": [5, 1], "x": 0, "y": 0},
-                {"label":"6"  ,"matrix": [5, 0], "x": 0, "y": 0},
-                {"label":"TAB","matrix": [3, 5], "x": 0, "y": 0},
-                {"label":"Q"  ,"matrix": [3, 4], "x": 0, "y": 0},
-                {"label":"W"  ,"matrix": [4, 3], "x": 0, "y": 0},
-                {"label":"E"  ,"matrix": [4, 2], "x": 0, "y": 0},
-                {"label":"R"  ,"matrix": [4, 1], "x": 0, "y": 0},
-                {"label":"T"  ,"matrix": [4, 0], "x": 0, "y": 0},
-                {"label":"CAP","matrix": [2, 5], "x": 0, "y": 0},
-                {"label":"A"  ,"matrix": [2, 4], "x": 0, "y": 0},
-                {"label":"S"  ,"matrix": [2, 3], "x": 0, "y": 0},
-                {"label":"D"  ,"matrix": [3, 2], "x": 0, "y": 0},
-                {"label":"F"  ,"matrix": [3, 1], "x": 0, "y": 0},
-                {"label":"G"  ,"matrix": [3, 0], "x": 0, "y": 0},
-                {"label":"SHT","matrix": [1, 5], "x": 0, "y": 0},
-                {"label":"Z"  ,"matrix": [1, 4], "x": 0, "y": 0},
-                {"label":"X"  ,"matrix": [1, 3], "x": 0, "y": 0},
-                {"label":"C"  ,"matrix": [1, 2], "x": 0, "y": 0},
-                {"label":"V"  ,"matrix": [2, 1], "x": 0, "y": 0},
-                {"label":"B"  ,"matrix": [2, 0], "x": 0, "y": 0},
-                {"label":"CTL","matrix": [0, 5], "x": 0, "y": 0},
-                {"label":"Fn1","matrix": [0, 4], "x": 0, "y": 0},
-                {"label":"Alt","matrix": [0, 3], "x": 0, "y": 0},
-                {"label":"SP1","matrix": [0, 2], "x": 0, "y": 0},
-                {"label":"SP2","matrix": [0, 1], "x": 0, "y": 0},
-                {"label":"SP3","matrix": [1, 0], "x": 0, "y": 0},
-
-                {"label":"Wheel SW","matrix": [3, 6], "x": 0, "y": 0},
-                {"label":"EC1 SW"  ,"matrix": [4, 6], "x": 0, "y": 0},
-                {"label":"EC2 SW"  ,"matrix": [5, 6], "x": 0, "y": 0},
-
-                {"label":"JS SW"   ,"matrix": [0, 6], "x": 0, "y": 0},
-                {"label":"JS KEY1" ,"matrix": [1, 6], "x": 0, "y": 0},
-                {"label":"JS KEY2" ,"matrix": [2, 6], "x": 0, "y": 0},
-
-                {"label":"JS UP"   ,"matrix": [0, 0], "x": 0, "y": 0},
-                {"label":"JS LEFT" ,"matrix": [1, 1], "x": 0, "y": 0},
-                {"label":"JS RIGHT","matrix": [2, 2], "x": 0, "y": 0},
-                {"label":"JS DOWN" ,"matrix": [3, 3], "x": 0, "y": 0}
-
+              {"label":"ESC","matrix": [5, 6], "x": 0, "y": 0},
+              {"label":"NC1","matrix": [4, 6], "x": 0, "y": 0},
+              {"label":"F1" ,"matrix": [3, 6], "x": 0, "y": 0},
+              {"label":"F2" ,"matrix": [2, 6], "x": 0, "y": 0},
+              {"label":"F3" ,"matrix": [1, 6], "x": 0, "y": 0},
+              {"label":"F4" ,"matrix": [0, 6], "x": 0, "y": 0},
+              {"label":"1"  ,"matrix": [5, 4], "x": 0, "y": 0},
+              {"label":"2"  ,"matrix": [4, 5], "x": 0, "y": 0},
+              {"label":"3"  ,"matrix": [3, 5], "x": 0, "y": 0},
+              {"label":"4"  ,"matrix": [2, 5], "x": 0, "y": 0},
+              {"label":"5"  ,"matrix": [1, 5], "x": 0, "y": 0},
+              {"label":"6"  ,"matrix": [0, 5], "x": 0, "y": 0},
+              {"label":"TAB","matrix": [5, 3], "x": 0, "y": 0},
+              {"label":"Q"  ,"matrix": [4, 3], "x": 0, "y": 0},
+              {"label":"W"  ,"matrix": [3, 4], "x": 0, "y": 0},
+              {"label":"E"  ,"matrix": [2, 4], "x": 0, "y": 0},
+              {"label":"R"  ,"matrix": [1, 4], "x": 0, "y": 0},
+              {"label":"T"  ,"matrix": [0, 4], "x": 0, "y": 0},
+              {"label":"CAP","matrix": [5, 2], "x": 0, "y": 0},
+              {"label":"A"  ,"matrix": [4, 2], "x": 0, "y": 0},
+              {"label":"S"  ,"matrix": [3, 2], "x": 0, "y": 0},
+              {"label":"D"  ,"matrix": [2, 3], "x": 0, "y": 0},
+              {"label":"F"  ,"matrix": [1, 3], "x": 0, "y": 0},
+              {"label":"G"  ,"matrix": [0, 3], "x": 0, "y": 0},
+              {"label":"SHT","matrix": [5, 1], "x": 0, "y": 0},
+              {"label":"Z"  ,"matrix": [4, 1], "x": 0, "y": 0},
+              {"label":"X"  ,"matrix": [3, 1], "x": 0, "y": 0},
+              {"label":"C"  ,"matrix": [2, 1], "x": 0, "y": 0},
+              {"label":"V"  ,"matrix": [1, 2], "x": 0, "y": 0},
+              {"label":"B"  ,"matrix": [0, 2], "x": 0, "y": 0},
+              {"label":"CTL","matrix": [5, 0], "x": 0, "y": 0},
+              {"label":"Fn1","matrix": [4, 0], "x": 0, "y": 0},
+              {"label":"Alt","matrix": [3, 0], "x": 0, "y": 0},
+              {"label":"SP1","matrix": [2, 0], "x": 0, "y": 0},
+              {"label":"SP2","matrix": [1, 0], "x": 0, "y": 0},
+              {"label":"SP3","matrix": [0, 1], "x": 0, "y": 0},
+              {"label":"Wheel SW","matrix": [6, 3], "x": 0, "y": 0},
+              {"label":"EC1 SW"  ,"matrix": [6, 4], "x": 0, "y": 0},
+              {"label":"EC2 SW"  ,"matrix": [6, 5], "x": 0, "y": 0},
+              {"label":"JS SW"   ,"matrix": [6, 0], "x": 0, "y": 0},
+              {"label":"JS KEY1" ,"matrix": [6, 1], "x": 0, "y": 0},
+              {"label":"JS KEY2" ,"matrix": [6, 2], "x": 0, "y": 0},
+              {"label":"JS UP"   ,"matrix": [0, 7], "x": 0, "y": 0},
+              {"label":"JS LEFT" ,"matrix": [1, 7], "x": 0, "y": 0},
+              {"label":"JS RIGHT","matrix": [2, 7], "x": 0, "y": 0},
+              {"label":"JS DOWN" ,"matrix": [3, 7], "x": 0, "y": 0}
             ]
-        }
+          }
+          
     }
 }

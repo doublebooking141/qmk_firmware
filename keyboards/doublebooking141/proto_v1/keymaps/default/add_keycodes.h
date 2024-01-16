@@ -29,15 +29,14 @@ enum TH_keycodes{
     L_ANG_I,
     L_ANG_D,
     L_INV,
-    L_CHMOD,
     R_ANG_I,
     R_ANG_D,
     R_INV,
-    R_CHMOD,
     INV_SCRL,
     MOD_SCRL,
     AUTO_MOUSE,
-    OLED_MOD
+    OLED_MOD,
+    JOYSTICK_MOD
 };
 
 bool process_record_addedkeycodes(uint16_t keycode, keyrecord_t *record);

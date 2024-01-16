@@ -5,6 +5,12 @@
 #include "quantum.h"
 #include "analog.h"
 
+// ファイル外参照変数
+ballconfig_t ballconfig;
+bool scrolling;
+uint16_t cpi_array[] = CPI_OPTIONS;
+uint16_t angle_array[] = ANGLE_OPTIONS;
+
 // ファイル内のみ変数
 int16_t gp27_newt;
 int16_t gp28_newt;
@@ -27,13 +33,13 @@ void matrix_init_addedjoystick(void) {
     }else{
         joystick_attached = true;
     }
-    key_up.row = 0;
+    key_up.row = 7;
     key_up.col = 0;
-    key_left.row = 1;
+    key_left.row = 7;
     key_left.col = 1;
-    key_right.row = 2;
+    key_right.row = 7;
     key_right.col = 2;
-    key_down.row = 3;
+    key_down.row = 7;
     key_down.col = 3;
 }
 

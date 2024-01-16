@@ -10,9 +10,9 @@
 // レイヤー名
 enum layer_number {
     // 右手仕様、
-    NORMAL = 0, SYMBOL,  ARROW, NUMPAD,
+    NORMAL = 0, 
     // 予備用レイヤー
-    EXTRA_1, EXTRA_2,
+    EXTRA_1, EXTRA_2,EXTRA_3,EXTRA_4,EXTRA_5,
     // 自動マウスレイヤー切り替えや設定用のレイヤー
     UTIL, MOUSE , BALL_SETTINGS, LIGHT_SETTINGS    
 };
@@ -20,93 +20,68 @@ enum layer_number {
 // キーマップ
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [NORMAL] = LAYOUT(
-        // 天面スイッチ
-        KC_BSPC,    KC_MINUS,              KC_0,              KC_9,             LT(BALL_SETTINGS, KC_8),     LT( LIGHT_SETTINGS, KC_7), 
-        KC_ENT,     LT(SYMBOL,KC_P),       KC_O,              KC_I,             KC_U,                         KC_Y,
-        KC_RSFT,    LT(ARROW,KC_SLASH),    LT(MOUSE, KC_L),   KC_K,             KC_J,                         KC_H,
-                    KC_RCTL,               LT(NUMPAD,KC_DOT), LT(UTIL,KC_COMM), KC_M,                         KC_N,
-                                           KC_RALT,
-         // 側面スイッチ
-        LALT(KC_GRAVE),KC_SPACE,
-         // 十字キーorジョイスティック                // ジョイスティックスイッチ
-        KC_LEFT, KC_RIGHT, KC_DOWN, KC_UP,       KC_ENT,
-        // 追加スイッチ                             // トグルスイッチ
-        KC_MS_BTN1, KC_MS_BTN2,                   MO(NUMPAD)
-    ),
-
-    [SYMBOL] = LAYOUT(
-        KC_DEL, KC_GRAVE,KC_BSLS,KC_EQUAL,KC_MINUS,XXXXXXX,
-        _______,_______,KC_RBRC,KC_LBRC,XXXXXXX,XXXXXXX,
-        _______,XXXXXXX,_______,KC_QUOT,KC_SCLN,XXXXXXX,
-                _______,XXXXXXX,KC_SLSH,KC_DOT,KC_COMM,
-                        _______,
-        _______,_______,
-        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
-        _______,_______,_______
-    ),
-    [ARROW] = LAYOUT(
-        _______, XXXXXXX, KC_F12, KC_F10, KC_F8,    KC_F5,
-        _______, XXXXXXX, KC_INS, KC_DEL, KC_PSCR,  XXXXXXX,
-        _______, _______, _______, KC_UP, KC_NUM,   XXXXXXX,
-                XXXXXXX, KC_RGHT, KC_DOWN, KC_LEFT, XXXXXXX,
-                _______,
-        _______, _______,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        _______, _______, _______
-    ),
-    [NUMPAD] = LAYOUT(
-        _______,KC_PAST,KC_PSLS,KC_P9,KC_P8,KC_P7,
-        _______,KC_PPLS,KC_PMNS,KC_P6,KC_P5,KC_P4,
-        _______,KC_NUM,_______,KC_P3,KC_P2,KC_P1,
-                XXXXXXX,_______,KC_PDOT,KC_P0,KC_P0,
-                        XXXXXXX,
-        _______,_______,
-        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
-        _______,_______,_______
+        // キーモジュール
+        KC_ESC,        XXXXXXX,    KC_F1,      KC_F2,   KC_F3,    KC_F4, 
+        KC_1,          KC_2,       KC_3,       KC_4,    KC_5,     KC_6,
+        KC_TAB,        KC_Q,       KC_W,       KC_E,    KC_R,     KC_T,
+        KC_CAPS,       KC_A,       KC_S,       KC_D,    KC_F,     KC_G,
+        KC_LEFT_SHIFT, KC_Z,       KC_X,       KC_C,    KC_V,     KC_B,
+        KC_LEFT_CTRL , XXXXXXX,    KC_LEFT_ALT,KC_SPACE,KC_SPACE,KC_SPACE,
+         // ドーターボード
+        KC_MS_BTN3,
+        XXXXXXX,
+        XXXXXXX,
+        // 親指回り
+        KC_MS_BTN3, XXXXXXX, XXXXXXX,
+        // 十字キーorジョイスティック               
+        KC_UP, KC_LEFT, KC_RIGHT, KC_DOWN
     ),
 
 
     [UTIL] = LAYOUT(
+        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
         XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX, OLED_MOD,
         XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
         XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
-                XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
-                        XXXXXXX,
-        XXXXXXX,XXXXXXX,
-        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
-        XXXXXXX,XXXXXXX,XXXXXXX
+        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX
     ),    
-
     [MOUSE] = LAYOUT(
-        _______, AUTO_MOUSE, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,
-        _______, XXXXXXX, XXXXXXX,KC_MS_BTN2 , KC_MS_BTN1, KC_WH_U,
-        _______, XXXXXXX, _______, KC_MS_BTN3, KC_MS_BTN1, KC_WH_D,
-                 XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                          XXXXXXX,
-        KC_MS_BTN4, KC_MS_BTN5,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,
-        LWIN(KC_L), KC_KB_MUTE, XXXXXXX
+        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX
 
     ),
     [BALL_SETTINGS] = LAYOUT(
-        XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, _______,  L_CHMOD,
+        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
+        XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, _______,  XXXXXXX,
         XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, CPI_I,    XXXXXXX,
         AUTO_MOUSE, XXXXXXX, XXXXXXX, L_ANG_D,   L_INV, L_ANG_I,
-                    XXXXXXX, XXXXXXX, XXXXXXX, CPI_D,    XXXXXXX,
-                          INV_SCRL,
-        XXXXXXX, XXXXXXX,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX,
-        XXXXXXX, XXXXXXX,                            XXXXXXX
+        XXXXXXX,    XXXXXXX, INV_SCRL, XXXXXXX, CPI_D,    XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX
     ),
     [LIGHT_SETTINGS] = LAYOUT(
         XXXXXXX, XXXXXXX, XXXXXXX, RGB_MOD, RGB_MOD, _______,
         XXXXXXX, RGB_SPI, RGB_VAI, RGB_SAI, RGB_HUI, RGB_TOG,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                 RGB_SPD, RGB_VAD, RGB_SAD, RGB_HUD, XXXXXXX,
-                          XXXXXXX,
-        RGB_MOD, RGB_MOD,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX,
-        XXXXXXX, XXXXXXX,                            XXXXXXX
+        XXXXXXX, RGB_SPD, RGB_VAD, RGB_SAD, RGB_HUD, XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,
+        RGB_MOD, RGB_MOD,XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,
+        XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX
     )
 };
 

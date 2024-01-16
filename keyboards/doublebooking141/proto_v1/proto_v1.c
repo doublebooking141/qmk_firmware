@@ -1,4 +1,5 @@
-#include proto_v1.h
+//#include proto_v1.h
+#include "quantum.h"
 
 const matrix_row_t matrix_mask[MATRIX_ROWS] = {
   0b1111110,

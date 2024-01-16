@@ -5,17 +5,7 @@
 #include "quantum.h"
 #include "os_detection.h"
 #include "add_oled.h"
-#include "add_trackball.h"
-
-// スクロールボタンをマウスキー扱いに
-bool is_mouse_record_user(uint16_t keycode, keyrecord_t* record) {
-    switch(keycode) {
-        case MOD_SCRL:
-            return true;
-        default:
-            return false;
-    }
-}
+#include "add_joystick.h"
 
 bool process_record_addedkeycodes(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -346,20 +336,6 @@ bool process_record_addedkeycodes(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
             break;
-        case L_CHMOD:
-            if (record->event.pressed) {
-                ballconfig.scmode = !ballconfig.scmode;
-                eeconfig_update_user(ballconfig.raw);
-            }
-            return false;
-            break;
-        case R_CHMOD:
-            if (record->event.pressed) {
-                ballconfig.scmode = !ballconfig.scmode;
-                eeconfig_update_user(ballconfig.raw);
-            }
-            return false;
-            break;
         case INV_SCRL:
             if (record->event.pressed) {
                 ballconfig.inv_sc = !ballconfig.inv_sc;
@@ -383,6 +359,19 @@ bool process_record_addedkeycodes(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 oled_mode = !oled_mode;
                 oled_clear();
+            }
+            return false;
+            break;
+        case JOYSTICK_MOD:
+            if (record->event.pressed) {
+                if(ballconfig.joystick_mode == 0){
+                    ballconfig.joystick_mode = 1;
+                }else if(ballconfig.joystick_mode == 1){
+                    ballconfig.joystick_mode = 2;
+                }else if(ballconfig.joystick_mode == 2){
+                    ballconfig.joystick_mode = 0;
+                }
+                eeconfig_update_user(ballconfig.raw);
             }
             return false;
             break;

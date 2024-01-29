@@ -5,6 +5,7 @@
 #include "add_keycodes.h"
 #include "add_joystick.h"
 #include "add_rgblayers.h"
+#include <print.h>
 
 
 // レイヤー名
@@ -30,11 +31,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          // ドーターボード
         KC_MS_BTN3,
         XXXXXXX,
-        XXXXXXX,
+        OLED_MOD,
         // 親指回り
         KC_MS_BTN3, XXXXXXX, XXXXXXX,
         // 十字キーorジョイスティック               
-        KC_UP, KC_LEFT, KC_RIGHT, KC_DOWN
+        KC_UP, KC_LEFT, KC_RIGHT,KC_DOWN
     ),
 
 
@@ -109,8 +110,17 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 // 初期化
 void matrix_init_user(void) {
     matrix_init_addedjoystick();
+    debug_enable = true;
+    debug_matrix = true;
+    debug_mouse  = true;
+
 }
 
+void matrix_init_kb(void) {
+  debug_enable = true;
+  debug_matrix = true;
+  debug_mouse  = true;
+}
 void keyboard_post_init_user(void) {
     keyboard_post_init_rgblayers();
 }
@@ -118,6 +128,10 @@ void keyboard_post_init_user(void) {
 // キースキャン
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     process_record_addedkeycodes(keycode, record);
+    #ifdef CONSOLE_ENABLE
+    uprintf("KL: kc: %u, col: %u, row: %u, pressed: %u\n", keycode, record->event.key.col, record->event.key.row, record->event.pressed);
+#endif 
+  return true;
     return true;
 }
 

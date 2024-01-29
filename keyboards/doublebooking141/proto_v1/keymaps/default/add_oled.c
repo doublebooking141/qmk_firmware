@@ -16,7 +16,7 @@ uint8_t cur_layer;
 
 // 初期化 左右で向きを反転
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-    oled_mode = true;
+    oled_mode = false;
     pre_layer = 0;
     cur_layer = 0;
     return rotation;
@@ -741,6 +741,15 @@ bool oled_task_user(void) {
         oled_write_P(PSTR("CPI:   "), false);
         oled_write(get_u16_str(cpi_array[ballconfig.cpi_idx], ' '), false);
         
+        if(ballconfig.joystick_mode==0){
+            oled_write_P(PSTR("  MOUSE"), false);
+        }else if(ballconfig.joystick_mode==1){
+            oled_write_P(PSTR("  KEY  "), false);
+        }else if(ballconfig.joystick_mode==2){
+            oled_write_P(PSTR("  STICK"), false);
+        }else{
+            oled_write_P(PSTR("       "), false);
+        }
 
         oled_set_cursor(0, 1);
         oled_write_P(PSTR("ANGLE: "), false);
@@ -768,22 +777,14 @@ bool oled_task_user(void) {
         }
 
         oled_set_cursor(0, 3);
-        if(ballconfig.joystick_mode==0){
-            oled_write_P(PSTR("MOUSE"), false);
-        }else if(ballconfig.joystick_mode==1){
-            oled_write_P(PSTR("KEY  "), false);
-        }else if(ballconfig.joystick_mode==2){
-            oled_write_P(PSTR("JOYSTICK"), false);
-        }else{
-            oled_write_P(PSTR("        "), false);
-        }
+        
         if (ballconfig.inv_sc){
             oled_write_P(PSTR("INV SCRL"), false);
         }else{
             oled_write_P(PSTR("        "), false);
         }
 
-        oled_write_P(PSTR("     Lyr:"), false);
+        oled_write_P(PSTR("   Lyr:"), false);
         if(cur_layer == AUTO_MOUSE_DEFAULT_LAYER){
             oled_write(get_u8_str(pre_layer , ' '), false);
         }else{

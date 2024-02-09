@@ -8,6 +8,7 @@
 // 制御用ピンの配列を定義する。
 // 7セグメントLEDのピンを定義する。
 const uint8_t seg_pins[] = SEG_LED_PINS;
+bool is_alive_seg = true;
 
 const uint8_t PROGMEM led7seg[][8] = {
     // 0
@@ -47,14 +48,16 @@ const uint8_t PROGMEM led7seg[][8] = {
 void matrix_init_led7seg(void) {
     // seg_pinsとして与えられたピンを出力に設定する
     //それらのピンをHighに設定する。
-    for (uint8_t i = 0; i < sizeof(seg_pins); i++) {
-        setPinOutput(seg_pins[i]);
-        writePinHigh(seg_pins[i]);
+    if(is_alive_seg == true){
+        
+        for (uint8_t i = 0; i < sizeof(seg_pins); i++) {
+            setPinOutput(seg_pins[i]);
+            writePinHigh(seg_pins[i]);
+        }
     }
-
 }
 
-bool led7seg_task_user(void) {
+void led7seg_task_user(void) {
     // 7セグメントLEDの点灯パターンを取得する。
     uint8_t layer = get_highest_layer(layer_state);
 
@@ -62,6 +65,11 @@ bool led7seg_task_user(void) {
     for (uint8_t i = 0; i < sizeof(seg_pins); i++) {
         writePin(seg_pins[i], !led7seg[layer][i]);
     }
+}
 
-    return false;
+void susepend_power_down_led7seg(void){
+    is_alive_seg = false;
+}
+void susepnd_wakeup_init_led7seg(void){
+    is_alive_seg = true;
 }

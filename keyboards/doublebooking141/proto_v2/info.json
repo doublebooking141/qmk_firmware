@@ -1,0 +1,118 @@
+{
+    "keyboard_name": "doublebooking141/proto_v2",
+    "manufacturer": "doublebooking141",
+    "maintainer": "doublebooking141",
+    "url": "doublebooking141",
+    "usb": {
+        "device_version": "1.0.0",
+        "pid": "0x8141",
+        "vid": "0xBEEF"
+    },
+    "processor": "RP2040",
+    "bootloader": "rp2040",
+    "features": {
+        "extrakey": true,
+        "pointing_device": true,
+        "oled": true,
+        "rgblight": true,
+        "midi": true
+    },
+    "mouse_key": {
+        "enabled": true
+    },
+    "tapping": {
+        "hold_on_other_key_press": true
+    },
+    "bootmagic": {
+        "enabled": true,
+        "matrix": [0, 1]
+    },
+    "matrix_pins": {
+        "cols": ["GP15", "GP16", "GP17", "GP18", "GP19", "GP20", "GP21", "GP22"],
+        "rows": ["GP15", "GP16", "GP17", "GP18", "GP19", "GP20", "GP21", "GP22"]
+    },
+    "diode_direction": "COL2ROW", 
+    "dynamic_keymap": {
+        "layer_count": 10
+    },
+    "rgblight": {
+        "led_count": 43,
+        "animations": {
+            "alternating": true,
+            "breathing": true,
+            "christmas": true,
+            "knight": true,
+            "rainbow_mood": true,
+            "rainbow_swirl": true,
+            "rgb_test": true,
+            "snake": true,
+            "static_gradient": true,
+            "twinkle": true
+        },
+        "max_brightness": 127
+    },
+    "ws2812": {
+        "pin": "GP6",
+        "driver": "vendor"
+    },
+    "encoder": {
+        "enabled": true,
+        "rotary": [
+            { "pin_a": "GP7", "pin_b": "GP8", "resolution": 2},
+            { "pin_a": "GP9", "pin_b": "GP10", "resolution": 2},
+            { "pin_a": "GP11", "pin_b": "GP12", "resolution": 2},
+            { "pin_a": "GP13", "pin_b": "GP14", "resolution": 2}
+        ]
+    },
+
+    "layouts": {
+        "LAYOUT": {
+            "layout": [
+                {"label":"ESC","matrix": [0, 1], "x": 0, "y": 0},
+                {"label":"CNV","matrix": [1, 0], "x": 0, "y": 0},
+                {"label":"1"  ,"matrix": [1, 2], "x": 0, "y": 0},
+                {"label":"2"  ,"matrix": [1, 3], "x": 0, "y": 0},
+                {"label":"3"  ,"matrix": [1, 4], "x": 0, "y": 0},
+                {"label":"4"  ,"matrix": [1, 5], "x": 0, "y": 0},
+                {"label":"5"  ,"matrix": [1, 6], "x": 0, "y": 0},
+                {"label":"6"  ,"matrix": [1, 7], "x": 0, "y": 0},
+                {"label":"TAB","matrix": [2, 0], "x": 0, "y": 0},
+                {"label":"Q"  ,"matrix": [2, 1], "x": 0, "y": 0},
+                {"label":"W"  ,"matrix": [2, 3], "x": 0, "y": 0},
+                {"label":"E"  ,"matrix": [2, 4], "x": 0, "y": 0},
+                {"label":"R"  ,"matrix": [2, 5], "x": 0, "y": 0},
+                {"label":"T"  ,"matrix": [2, 6], "x": 0, "y": 0},
+                {"label":"Y"  ,"matrix": [2, 7], "x": 0, "y": 0},
+                {"label":"CAP","matrix": [3, 0], "x": 0, "y": 0},
+                {"label":"A"  ,"matrix": [3, 1], "x": 0, "y": 0},
+                {"label":"S"  ,"matrix": [3, 2], "x": 0, "y": 0},
+                {"label":"D"  ,"matrix": [3, 4], "x": 0, "y": 0},
+                {"label":"F"  ,"matrix": [3, 5], "x": 0, "y": 0},
+                {"label":"G"  ,"matrix": [3, 6], "x": 0, "y": 0},
+                {"label":"SHT","matrix": [4, 0], "x": 0, "y": 0},
+                {"label":"Z"  ,"matrix": [4, 1], "x": 0, "y": 0},
+                {"label":"X"  ,"matrix": [4, 2], "x": 0, "y": 0},
+                {"label":"C"  ,"matrix": [4, 3], "x": 0, "y": 0},
+                {"label":"V"  ,"matrix": [4, 5], "x": 0, "y": 0},
+                {"label":"B"  ,"matrix": [4, 6], "x": 0, "y": 0},
+                {"label":"CTL","matrix": [5, 0], "x": 0, "y": 0},
+                {"label":"Fn1","matrix": [5, 1], "x": 0, "y": 0},
+                {"label":"Alt","matrix": [5, 2], "x": 0, "y": 0},
+                {"label":"SP1","matrix": [5, 3], "x": 0, "y": 0},
+                {"label":"SP2","matrix": [5, 4], "x": 0, "y": 0},
+                {"label":"EC1_SW","matrix": [0, 3], "x": 0, "y": 0},
+                {"label":"EC2_SW","matrix": [0, 4], "x": 0, "y": 0},
+                {"label":"EC3_SW","matrix": [0, 6], "x": 0, "y": 0},
+                {"label":"EC4_SW","matrix": [3, 7], "x": 0, "y": 0},
+                {"label":"THB_SW1","matrix": [5, 6], "x": 0, "y": 0},
+                {"label":"THB_SW2","matrix": [5, 7], "x": 0, "y": 0},
+                {"label":"JS SW"   ,"matrix": [7, 6], "x": 0, "y": 0},
+                {"label":"JS UP"   ,"matrix": [7, 0], "x": 0, "y": 0},
+                {"label":"JS LEFT" ,"matrix": [7, 1], "x": 0, "y": 0},
+                {"label":"JS RIGHT","matrix": [7, 2], "x": 0, "y": 0},
+                {"label":"JS DOWN" ,"matrix": [7, 3], "x": 0, "y": 0}
+              ]
+          }
+          
+    }
+}

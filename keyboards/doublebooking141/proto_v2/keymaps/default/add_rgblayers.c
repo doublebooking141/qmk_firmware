@@ -13,33 +13,34 @@ const rgblight_segment_t PROGMEM my_scrolllock_layer[] = RGBLIGHT_LAYER_SEGMENTS
     { 37, 1, HSV_RED}                                                       );
 
 const rgblight_segment_t PROGMEM my_default_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    { 0, 3, HSV_WHITE},{ 35, 3, HSV_WHITE}                                   );
+    { 0, 3, HSV_WHITE}                                  );
 
 const rgblight_segment_t PROGMEM my_normal_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    { 3, 32, HSV_WHITE}, { 38, 3, HSV_WHITE}                                 );
+    { 4, 7, HSV_WHITE}, 
+    { 12, 5, HSV_WHITE},
+    { 19, 10, HSV_WHITE}                                 );
 
 const rgblight_segment_t PROGMEM extra1_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    { 5, 12, HSV_GREEN}                                                     );
+    { 5, 12, HSV_BLUE}                                                     );
 const rgblight_segment_t PROGMEM extra2_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     { 5, 5, HSV_BLUE},{ 11, 6, HSV_BLUE},{ 19, 6, HSV_BLUE},{ 26, 3, HSV_BLUE}
     );
 const rgblight_segment_t PROGMEM extra3_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     { 0, 35, HSV_YELLOW}, { 39, 3, HSV_YELLOW}                             );
-const rgblight_segment_t PROGMEM extra4_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    { 0, 35, HSV_BLUE}, { 39, 3, HSV_BLUE}                                 );
+
 
 const rgblight_segment_t PROGMEM util_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {34, 2, HSV_PINK},{ 39, 2, HSV_WHITE}                                  );
 const rgblight_segment_t PROGMEM mouse_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    { 24, 3, HSV_BLUE}, { 33, 2, HSV_BLUE}, { 42, 1, HSV_BLUE}             );
+    { 32, 3, HSV_BLUE}, { 40, 2, HSV_BLUE}             );
 
 
 
 const rgblight_segment_t PROGMEM ball_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    { 42, 1, HSV_GREEN} );
+    { 41, 1, HSV_GREEN} );
 
 const rgblight_segment_t PROGMEM light_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    { 42, 1, HSV_GREEN}                         );
+    { 41, 1, HSV_GREEN}                         );
 
 // レイヤーごとの発光方法の指定
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
@@ -53,7 +54,6 @@ const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     extra1_layer,
     extra2_layer,
     extra3_layer,
-    extra4_layer,
 
     util_layer,
     mouse_layer,

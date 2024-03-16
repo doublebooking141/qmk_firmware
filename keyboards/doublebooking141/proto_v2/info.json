@@ -49,7 +49,7 @@
             "static_gradient": true,
             "twinkle": true
         },
-        "max_brightness": 127
+        "max_brightness": 100
     },
     "ws2812": {
         "pin": "GP6",
@@ -58,7 +58,7 @@
     "encoder": {
         "enabled": true,
         "rotary": [
-            { "pin_a": "GP7", "pin_b": "GP8", "resolution": 2},
+            { "pin_a": "GP7", "pin_b": "GP8", "resolution": 4},
             { "pin_a": "GP9", "pin_b": "GP10", "resolution": 2},
             { "pin_a": "GP11", "pin_b": "GP12", "resolution": 2},
             { "pin_a": "GP13", "pin_b": "GP14", "resolution": 2}
